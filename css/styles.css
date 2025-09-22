@@ -1,0 +1,172 @@
+ :root {
+     --saffron-600: #e86b06;
+     --saffron-700: #d96005;
+     --gold-500: #d4af37;
+     --gold-300: #f2d77b;
+     --ebony-900: #0e0e10;
+     --offwhite: #f9f6ee;
+ }
+
+ body {
+     font-family: "Poppins", sans-serif;
+     color: var(--offwhite);
+     background: radial-gradient(1200px 600px at 10% -10%,
+             rgba(212, 175, 55, 0.18),
+             transparent 60%),
+         linear-gradient(135deg,
+             var(--saffron-600),
+             var(--gold-500),
+             var(--saffron-600));
+             background-attachment: fixed;
+background-size: cover;
+ }
+
+ .text-gold {
+     color: var(--gold-300) !important;
+ }
+
+ .brand-motto {
+     font-family: "Noto Serif Devanagari", serif;
+     color: var(--gold-300);
+     margin-top: 8px
+ }
+
+ .section-title {
+     font-family: "Cinzel Decorative", serif;
+     letter-spacing: 0.4px;
+ }
+
+ /* Neumorphic dark cards */
+ .neo-dark {
+     background: var(--ebony-900);
+     border-radius: 24px;
+     box-shadow: -12px -12px 24px rgba(255, 255, 255, 0.05),
+         12px 12px 24px rgba(0, 0, 0, 0.55);
+ }
+
+ .neo-inset {
+     box-shadow: inset -8px -8px 16px rgba(255, 255, 255, 0.04),
+         inset 8px 8px 16px rgba(0, 0, 0, 0.6);
+ }
+
+ .btn-gold {
+     background: linear-gradient(90deg, var(--saffron-700), var(--gold-500));
+     color: #151515;
+     font-weight: 600;
+     border: 0;
+ }
+
+ .btn-gold:hover {
+     filter: brightness(1.06);
+     color: #111;
+ }
+
+ .btn-ghost {
+     background: transparent;
+     border: 1px solid #ffffff22;
+     color: #fff;
+ }
+
+ /* Right side nav */
+ .side-nav {
+     position: fixed;
+     top: 16px;
+     right: 16px;
+     width: 260px;
+     padding: 16px;
+     z-index: 20;
+ }
+
+ .side-nav a {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     padding: 0.6rem 0.8rem;
+     color: #ddd;
+     text-decoration: none;
+     border-radius: 12px;
+ }
+
+ .side-nav a:hover {
+     background: #ffffff10;
+ }
+
+ .side-nav a.active {
+     background: #ffffff18;
+     color: #fff;
+     outline: 2px solid #ffffff14;
+ }
+
+ /* KPI tiles */
+ .card {
+     padding: 16px;
+     border-radius: 16px;
+     background: #ffffff08;
+     color: white;
+ }
+
+ .card .value {
+     font-size: 1.5rem;
+     font-weight: 700;
+ }
+
+ /* Cards */
+ .card-dark {
+     background: #111;
+     border-radius: 16px;
+     padding: 16px;
+ }
+
+ .bless-img,
+ .store-img {
+     width: 96px;
+     height: 96px;
+     object-fit: cover;
+     border-radius: 14px;
+ }
+
+ .chip {
+     font-size: 0.75rem;
+     padding: 0.25rem 0.5rem;
+     border-radius: 999px;
+     background: #0008;
+     color: #fff;
+ }
+
+ .progress.neo-inset {
+     background: #ffffff12;
+     height: 14px;
+     border-radius: 999px;
+ }
+
+ .progress-bar {
+     background: linear-gradient(90deg, var(--saffron-700), var(--gold-500));
+ }
+
+ .content-wrap {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding-right: 300px;
+ }
+
+ main section {
+     display: none;
+     position: relative;
+ }
+
+ main section.active {
+     display: block;
+ }
+
+ /* leave space for right nav */
+ @media (max-width: 1200px) {
+     .content-wrap {
+         padding-right: 0;
+     }
+
+     .side-nav {
+         position: static;
+         width: auto;
+         margin: 16px;
+     }
+ }

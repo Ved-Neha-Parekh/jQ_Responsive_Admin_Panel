@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JQ | Karma Panel</title>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@400;600&family=Noto+Serif+Devanagari:wght@700&display=swap"
+    rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <!-- Side nav -->
+  <aside class="side-nav neo-dark">
+    <div class="d-flex align-items-center gap-2 mb-3">
+      <i class="fa-solid fa-om text-gold"></i>
+      <div class="brand-motto small">धर्म, कर्म, संस्कार</div>
+    </div>
+    <nav class="d-flex flex-column" id="sideLinks">
+      <a href="#hero" class="active"><i class="fa-solid fa-sun"></i> Hero</a>
+      <a href="#dashboard"><i class="fa-solid fa-chart-line"></i> Karma Dashboard</a>
+      <a href="#store"><i class="fa-solid fa-store"></i> Punya Store</a>
+      <a href="#paap"><i class="fa-solid fa-skull-crossbones"></i> Paap Records</a>
+      <a href="#blessings"><i class="fa-solid fa-hands-praying"></i> God's Blessings</a>
+      <a href="#moksha"><i class="fa-solid fa-seedling"></i> Moksha Progress</a>
+    </nav>
+  </aside>
+  <!-- Main content -->
+  <main class="content-wrap container-xxl py-4">
+    <header class="d-flex align-items-center justify-content-between mb-3">
+      <div>
+        <div class="brand-motto">धर्म, कर्म, संस्कार</div>
+        <div class="fw-semibold">Karma Panel</div>
+      </div>
+      <div class="small text-end">
+        <span class="me-3"><i class="fa-solid fa-fire text-warning"></i> Good:
+          <span id="goodKarma">0</span></span>
+        <span class="me-3"><i class="fa-solid fa-skull-crossbones text-danger"></i> Bad:
+          <span id="badKarma">0</span></span>
+        <span><i class="fa-solid fa-scale-balanced text-success"></i> Total:
+          <span id="totalScore">0</span></span>
+      </div>
+    </header>
+    <!-- HERO -->
+    <section id="hero" class="neo-dark p-4 p-md-5 mb-4 active">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-8">
+          <h1 class="section-title h3 text-gold">
+            Track Your Karma, Honor Your Dharma
+          </h1>
+          <p class="mb-3 text-white-75">
+            Build good habits through Sanatan values. Reflect, improve, and
+            lead with seva. This dashboard gamifies your journey with Punya,
+            Paap, Blessings, and Moksha Progress.
+          </p>
+          <button class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#journeyModal">
+            <i class="fa-solid fa-shoe-prints me-2"></i>Start Your Journey
+          </button>
+        </div>
+        <div class="col-lg-4">
+          <div class="card neo-inset mb-2">
+            <div class="d-flex justify-content-between">
+              <span>Good Karma</span><i class="fa-solid fa-heart text-warning"></i>
+            </div>
+            <div class="value" id="goodKarma">0</div>
+          </div>
+          <div class="card neo-inset mb-2">
+            <div class="d-flex justify-content-between">
+              <span>Bad Karma</span><i class="fa-solid fa-bolt text-danger"></i>
+            </div>
+            <div class="value" id="badKarma">0</div>
+          </div>
+          <div class="card neo-inset mb-2">
+            <div class="d-flex justify-content-between">
+              <span>Total Score</span><i class="fa-solid fa-scale-balanced text-gold"></i>
+            </div>
+            <div class="value" id="totalKarma">0</div>
+          </div>
+          <div class="card neo-inset">
+            <div class="d-flex justify-content-between">
+              <span>7-day Trend</span><i class="fa-solid fa-arrow-trend-up text-info"></i>
+            </div>
+            <div class="value" id="dayTrend">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KARMA DASHBOARD -->
+    <section id="dashboard" class="neo-dark p-4 p-md-5 mb-4">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="section-title h4 text-gold m-0">Karma Dashboard</h2>
+        <div class="small text-white-50">Overview of your journey</div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card-dark">
+            <div class="small text-white-50 mb-1">Level</div>
+            <div class="h5 m-0" id="levelName">Shishya</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-dark">
+            <div class="small text-white-50 mb-1">Streak</div>
+            <div class="h5 m-0"><span id="streakDays">0</span> days</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-dark">
+            <div class="small text-white-50 mb-1">Target</div>
+            <div class="h5 m-0"><span id="targetScore">500</span> points</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUNYA STORE -->
+    <section id="store" class="neo-dark p-4 p-md-5 mb-4">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="section-title h4 text-gold m-0">Punya Store</h2>
+        <div>
+          <button class="btn btn-ghost btn-sm me-2" data-bs-toggle="modal" data-bs-target="#addStoreItemModal">
+            <i class="fa-solid fa-plus me-1"></i>Add Item
+          </button>
+          <small class="text-white-50">Grant items to add Good Karma</small>
+        </div>
+      </div>
+      <div id="storeGrid" class="row g-4"></div>
+    </section>
+
+    <!-- PAAP RECORDS -->
+    <section id="paap" class="neo-dark p-4 p-md-5 mb-4">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="section-title h4 text-gold m-0">Paap Records</h2>
+        <div>
+          <button class="btn btn-ghost btn-sm me-2" data-bs-toggle="modal" data-bs-target="#addPaapModal">
+            <i class="fa-solid fa-plus me-1"></i>Add Paap
+          </button>
+          <small class="text-white-50">Reflect, resolve, and restore balance</small>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-dark table-borderless align-middle">
+          <thead>
+            <tr class="text-white-50">
+              <th>ID</th>
+              <th>Title</th>
+              <th>Seriousness</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="paapTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- BLESSINGS -->
+    <section id="blessings" class="neo-dark p-4 p-md-5 mb-4">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2 class="section-title h4 text-gold m-0">God's Blessings</h2>
+        <div class="small text-white-50">
+          Earn blessings by meeting criteria
+        </div>
+      </div>
+      <div id="blessingsGrid" class="row g-4"></div>
+    </section>
+
+    <!-- MOKSHA PROGRESS -->
+    <section id="moksha" class="neo-dark p-4 p-md-5">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div>
+          <h2 class="section-title h4 text-gold m-0">Moksha Progress</h2>
+          <div class="small text-white-50">
+            Your spiritual journey, visualized
+          </div>
+        </div>
+        <div class="small text-white-75 text-end">
+          Level: <span id="levelName2">Shishya</span> • Streak:
+          <span id="streakDays2">0</span>d • Target:
+          <span id="targetScore2">500</span>
+        </div>
+      </div>
+      <div class="d-flex flex-column flex-md-row gap-3 align-items-md-center">
+        <div class="flex-grow-1">
+          <div class="progress neo-inset" role="progressbar">
+            <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+          </div>
+          <div class="d-flex justify-content-between mt-2 small">
+            <span id="progressLabel">0% towards next milestone</span>
+            <span class="text-white-50">Next: <span id="nextLevelLabel">Sadhak</span></span>
+          </div>
+        </div>
+        <button class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#journeyModal">
+          <i class="fa-solid fa-shoe-prints me-2"></i>Continue Journey
+        </button>
+      </div>
+    </section>
+  </main>
+  <!-- Modals -->
+  <!-- Log Karma Event -->
+  <div class="modal fade" id="journeyModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content neo-dark p-2">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-gold">Log Karma Event</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label">Type</label>
+              <select id="eventType" class="form-select bg-dark text-light border-secondary">
+                <option value="punya">Punya (+)</option>
+                <option value="paap">Paap (-)</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Points</label>
+              <input id="eventPoints" type="number" class="form-control bg-dark text-light border-secondary"
+                placeholder="e.g., 10" />
+            </div>
+            <div class="col-12">
+              <label class="form-label">Note (optional)</label>
+              <input id="eventNote" type="text" class="form-control bg-dark text-light border-secondary"
+                placeholder="Short note" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-ghost" data-bs-dismiss="modal">
+            Cancel
+          </button>
+          <button id="saveEventBtn" class="btn btn-gold">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add Store Item -->
+  <div class="modal fade" id="addStoreItemModal">
+    <div class="modal-dialog">
+      <div class="modal-content neo-dark p-2">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-gold">Add Punya Item</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body row g-3">
+          <div class="col-12">
+            <label class="form-label">Title</label>
+            <input id="storeTitle" class="form-control bg-dark text-light border-secondary"
+              placeholder="e.g., Annadan (Food Donation)" />
+          </div>
+          <div class="col-6">
+            <label class="form-label">Deity/Tag</label>
+            <input id="storeDeity" class="form-control bg-dark text-light border-secondary"
+              placeholder="Hanuman / Seva" />
+          </div>
+          <div class="col-6">
+            <label class="form-label">Reward Points</label>
+            <input id="storePoints" type="number" class="form-control bg-dark text-light border-secondary"
+              placeholder="e.g., 20" />
+          </div>
+          <div class="col-12">
+            <label class="form-label">Image URL (optional)</label>
+            <input id="storeImg" class="form-control bg-dark text-light border-secondary"
+              placeholder="https://...png" />
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-ghost" data-bs-dismiss="modal">Close</button>
+          <button id="saveStoreItemBtn" class="btn btn-gold">
+            Save Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add Paap -->
+  <div class="modal fade" id="addPaapModal">
+    <div class="modal-dialog">
+      <div class="modal-content neo-dark p-2">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-gold">Add Paap Record</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body row g-3">
+          <div class="col-12">
+            <label class="form-label">Title</label>
+            <input id="paapTitle" class="form-control bg-dark text-light border-secondary"
+              placeholder="e.g., Broke a promise" />
+          </div>
+          <div class="col-6">
+            <label class="form-label">Seriousness</label>
+            <select id="paapSeriousness" class="form-select bg-dark text-light border-secondary">
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Penalty Points</label>
+            <input id="paapPoints" type="number" class="form-control bg-dark text-light border-secondary"
+              placeholder="e.g., 10" />
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-ghost" data-bs-dismiss="modal">Close</button>
+          <button id="savePaapBtn" class="btn btn-gold">Save Paap</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("main section").removeClass("active").hide();
+      $("#hero").addClass("active").show();
+
+      $(".side-nav a").click(function (e) {
+        let target = $(this).attr("href");
+        if (target) {
+          $(target).addClass("active").show();
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
