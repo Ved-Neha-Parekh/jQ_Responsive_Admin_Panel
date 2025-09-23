@@ -17,6 +17,13 @@
 </head>
 
 <body>
+  <!-- Custom cursors -->
+  <div id="customCursor">
+    <span id="cursorIcon">
+      <i class="fa-solid fa-om"></i>
+    </span>
+  </div>
+  <div id="cursorBlur"></div>
   <!-- Side nav -->
   <aside class="side-nav neo-dark">
     <div class="d-flex align-items-center gap-2 mb-3">
@@ -49,7 +56,7 @@
       </div>
     </header>
     <!-- HERO -->
-    <section id="hero" class="neo-dark p-4 p-md-5 mb-4 active">
+    <section id="hero" class="neo-dark p-4 p-md-5 mb-4">
       <div class="row g-4 align-items-center">
         <div class="col-lg-8">
           <h1 class="section-title h3 text-gold">
@@ -321,7 +328,22 @@
   </div>
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="./js/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
   <script>
+    $(document).on("mousemove", function (dets) {
+      gsap.to("#customCursor", {
+        x: dets.clientX - 20,
+        y: dets.clientY - 20,
+        duration: 0.50,
+      });
+      gsap.to("#cursorBlur", {
+        x: dets.clientX - 125,
+        y: dets.clientY - 125,
+        duration: 1,
+      })
+    })
+  </script>
+  <!-- <script>
     $(document).ready(function () {
       $("main section").removeClass("active").hide();
       $("#hero").addClass("active").show();
@@ -333,7 +355,7 @@
         }
       })
     })
-  </script>
+  </script> -->
 </body>
 
 </html>

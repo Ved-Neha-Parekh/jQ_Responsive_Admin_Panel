@@ -17,8 +17,8 @@
              var(--saffron-600),
              var(--gold-500),
              var(--saffron-600));
-             background-attachment: fixed;
-background-size: cover;
+     background-attachment: fixed;
+     background-size: cover;
  }
 
  .text-gold {
@@ -59,6 +59,7 @@ background-size: cover;
  .btn-gold:hover {
      filter: brightness(1.06);
      color: #111;
+     -webkit-filter: brightness(1.06);
  }
 
  .btn-ghost {
@@ -149,14 +150,15 @@ background-size: cover;
      padding-right: 300px;
  }
 
- main section {
+
+ /* main section {
      display: none;
      position: relative;
  }
 
  main section.active {
      display: block;
- }
+ } */
 
  /* leave space for right nav */
  @media (max-width: 1200px) {
@@ -169,4 +171,38 @@ background-size: cover;
          width: auto;
          margin: 16px;
      }
+ }
+
+ #customCursor,
+ #cursorBlur {
+     position: fixed;
+     pointer-events: none;
+     transition: opacity 0.2s;
+ }
+
+ #customCursor {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.5rem;
+     color: var(--saffron-600);
+     box-shadow: 0 2px 12px 0 rgba(232, 107, 6, 0.15);
+     opacity: 1;
+     z-index: 999;
+     mix-blend-mode: difference;
+ }
+
+ #cursorBlur {
+     width: 250px;
+     height: 250px;
+     border-radius: 50%;
+     background: radial-gradient(rgba(232, 107, 6, 0.45) 65%, rgba(232, 107, 6, 0.10) 90%, transparent 100%);
+     filter: blur(40px);
+     opacity: 0.4;
+     transition: opacity 0.2s;
+     z-index: 9;
+     -webkit-filter: blur(40px);
  }
